@@ -89,6 +89,8 @@ function Expense() {
   useEffect(() => {
     fetchExpenses();
   }, []);
+  if(!userDetails)
+    return <h1>Not Authorized</h1>;
   const logoutHandler = () => {
     navigate("/");
     localStorage.removeItem("userDetails");
