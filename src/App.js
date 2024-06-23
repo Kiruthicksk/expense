@@ -7,15 +7,14 @@ import { Store } from "./Store";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { userDetails } = state;
   return (
     <Router>
       <Routes>
-        {!userDetails && <Route path="/" element={<Signup/>}/>}
-        {userDetails &&  <Route path="/" element={<Expense/>}/>}
-        {!userDetails && <Route path="/user/sign-up" element={<Signup/>}/>}
-        {userDetails && <Route path="/expense" element={<Expense/>}/>}
-        {!userDetails && <Route path="/user/sign-in" element={<Signin/>}/>}
+        <Route path="/" element={<Signup/>}/> 
+         <Route path="/" element={ <Expense/>}/>
+         <Route path="/user/sign-up" element={<Signup/>}/>
+         <Route path="/expense" element={<Expense/>}/>
+         <Route path="/user/sign-in" element={ <Signin/>}/>
       </Routes>
     </Router>
   );
